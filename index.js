@@ -105,15 +105,7 @@ async function configureProject(setupOptions) {
     if (setupOptions.setupVSCodeSettings) {
         // Write VSCode settings to .vscode/settings.json
         const vscodeSettings = {
-            'editor.defaultFormatter': 'dbaeumer.vscode-eslint',
             'editor.formatOnSave': true,
-            'javascript.format.semicolons': 'remove',
-            'typescript.format.semicolons': 'remove',
-            'typescript.preferences.quoteStyle': 'single',
-            'javascript.preferences.quoteStyle': 'single',
-            'typescript.updateImportsOnFileMove.enabled': 'always',
-            'javascript.updateImportsOnFileMove.enabled': 'always',
-            'eslint.validate': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact'],
             '[javascript]': { 'editor.defaultFormatter': 'dbaeumer.vscode-eslint' },
             '[typescript]': { 'editor.defaultFormatter': 'dbaeumer.vscode-eslint' },
         };
