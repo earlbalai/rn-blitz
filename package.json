@@ -7,7 +7,7 @@
   "homepage": "https://github.com/earlbalai/rn-blitz#readme",
   "main": "index.mjs",
   "scripts": {
-    "rn-blitz": "node ./index.mjs"
+    "start": "node ./index.mjs"
   },
   "repository": {
     "type": "git",
