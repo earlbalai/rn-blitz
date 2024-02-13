@@ -1,10 +1,10 @@
 # React Native Blitz (A boilerplate tool)
 
-**rn-blitz** is a simple command-line tool for quickly initializing new React Native projects with predefined configurations.
+**React Native Blitz** is a simple command-line tool for quickly initializing new React Native projects with predefined configurations.
 
 ## Installation
 
-To use **rn-blitz**, you need to have Node.js installed on your machine. You can install **rn-blitz** globally using npm:
+To use **React Native Blitz**, you need to have Node.js installed on your machine. You can install **rn-blitz** globally using npm:
 
 ```bash
 npm install -g rn-blitz
