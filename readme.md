@@ -1,4 +1,4 @@
-# rn-blitz
+# React Native Blitz (A boilerplate tool)
 
 **rn-blitz** is a simple command-line tool for quickly initializing new React Native projects with predefined configurations.
 
