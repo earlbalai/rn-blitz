@@ -1,4 +1,3 @@
-```
 # rn-blitz
 
 **rn-blitz** is a simple command-line tool for quickly initializing new React Native projects with predefined configurations.
@@ -34,4 +33,3 @@ Contributions are welcome! If you have any suggestions, bug reports, or feature 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
