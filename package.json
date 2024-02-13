@@ -1,14 +1,21 @@
 {
   "name": "rn-blitz",
   "version": "0.0.1",
-  "description": "A react native templating tool with eslint preconfig",
+  "description": "React Native Blitz is a simple command-line tool for quickly initializing new React Native projects with predefined configurations.",
+  "author": "Earl Balai Jr",
+  "license": "MIT",
+  "homepage": "https://github.com/earlbalai/rn-blitz#readme",
   "main": "index.mjs",
   "scripts": {
-    "rn-blitz": "node ./index.mjs",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "rn-blitz": "node ./index.mjs"
   },
-  "author": "Earl Balai Jr",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/earlbalai/rn-blitz.git"
+  },
+  "bugs": {
+    "url": "https://github.com/earlbalai/rn-blitz/issues"
+  },
   "dependencies": {
     "child_process": "^1.0.2",
     "fs": "^0.0.1-security",
