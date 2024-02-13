@@ -2,7 +2,7 @@
   "name": "rn-blitz",
   "version": "0.0.1",
   "description": "A react native templating tool with eslint preconfig",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
     "rn-blitz": "node ./index.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
