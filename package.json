@@ -1,6 +1,6 @@
 {
   "name": "rn-blitz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "React Native Blitz is a simple command-line tool for quickly initializing new React Native projects with predefined configurations.",
   "author": "Earl Balai Jr",
   "license": "MIT",
@@ -16,9 +16,11 @@
   "bugs": {
     "url": "https://github.com/earlbalai/rn-blitz/issues"
   },
+  "bin": {
+    "rn-blitz": "index.mjs"
+  },
+  "type": "module",
   "dependencies": {
-    "child_process": "^1.0.2",
-    "fs": "^0.0.1-security",
     "inquirer": "^9.2.14"
   }
 }
