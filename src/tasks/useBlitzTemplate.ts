@@ -1,25 +1,29 @@
-import fs from 'fs/promises'
-import path from 'path'
-import inquirer from 'inquirer'
-import { execCommand } from '../utils.mjs'
+import path from "path"
+import fs from "fs/promises"
+import inquirer from "inquirer"
+import { execCommand } from "../utils.js" // Assuming execCommand is exported from utils.js
 
-async function useBlitzTemplate(projectFolderPath, packageManagerChoice) {
+async function useBlitzTemplate(
+  projectFolderPath: string,
+  packageManagerChoice: string,
+): Promise<void> {
   try {
     const { useBlitzTemplate } = await inquirer.prompt([
       {
-        type: 'confirm',
-        name: 'useBlitzTemplate',
-        message: 'Do you want to use the React Native Blitz template? This will set up the project with recommended folder structure and unistyles package.'
-      }
+        type: "confirm",
+        name: "useBlitzTemplate",
+        message:
+          "Do you want to use the React Native Blitz template? This will set up the project with recommended folder structure and unistyles package.",
+      },
     ])
 
     if (!useBlitzTemplate) {
-      console.log('Skipping React Native Blitz template setup.')
+      console.log("Skipping React Native Blitz template setup.")
       return
     }
 
-    const srcFolderPath = path.join(projectFolderPath, 'src')
-    const stylesFolderPath = path.join(srcFolderPath, 'styles')
+    const srcFolderPath = path.join(projectFolderPath, "src")
+    const stylesFolderPath = path.join(srcFolderPath, "styles")
 
     // Move App.tsx to src folder
     await fs.mkdir(srcFolderPath)
@@ -32,35 +36,43 @@ async function useBlitzTemplate(projectFolderPath, packageManagerChoice) {
     await fs.writeFile(`${srcFolderPath}/App.tsx`, appTsContent)
     await fs.writeFile(`${projectFolderPath}/index.js`, indexJsContent)
 
-    console.log('Setting up unistyles...')
+    console.log("Setting up unistyles...")
     await updatePackageScripts(projectFolderPath, packageManagerChoice)
-    execCommand(`cd ${projectFolderPath} && ${packageManagerChoice} install react-native-unistyles && eslint . --ext .js,.jsx,.ts,.tsx --fix && cd ../`)
+    execCommand(
+      `cd ${projectFolderPath} && ${packageManagerChoice} install react-native-unistyles && eslint . --ext .js,.jsx,.ts,.tsx --fix && cd ../`,
+    )
   } catch (error) {
-    console.error('Error occurred while setting up React Native Blitz template:', error)
+    console.error(
+      "Error occurred while setting up React Native Blitz template:",
+      error,
+    )
   }
 }
 
-async function updatePackageScripts(projectFolderPath, packageManagerChoice) {
-  const packageJsonPath = path.join(projectFolderPath, 'package.json')
+async function updatePackageScripts(
+  projectFolderPath: string,
+  packageManagerChoice: string,
+): Promise<void> {
+  const packageJsonPath = path.join(projectFolderPath, "package.json")
   try {
-    const packageJsonData = await fs.readFile(packageJsonPath, 'utf-8')
+    const packageJsonData = await fs.readFile(packageJsonPath, "utf-8")
     const packageJson = JSON.parse(packageJsonData)
 
     packageJson.scripts = {
-      "android": "react-native run-android",
-      "ios": "react-native run-ios",
-      "start": "react-native start",
-      "tsc": "tsc",
-      "test": "jest",
+      android: "react-native run-android",
+      ios: "react-native run-ios",
+      start: "react-native start",
+      tsc: "tsc",
+      test: "jest",
       "test:watch": "jest --watch",
-      "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-      "lint:fix": `${packageManagerChoice} run lint -- --fix`
+      lint: "eslint src --ext .js,.jsx,.ts,.tsx",
+      "lint:fix": `${packageManagerChoice} run lint -- --fix`,
     }
 
     await fs.writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2))
-    console.log('Updated package.json with new scripts.')
+    console.log("Updated package.json with new scripts.")
   } catch (error) {
-    console.error('Error occurred while updating package.json:', error)
+    console.error("Error occurred while updating package.json:", error)
   }
 }
 

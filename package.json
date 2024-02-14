@@ -1,13 +1,23 @@
 {
   "name": "rn-blitz",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React Native Blitz is a simple command-line tool for quickly initializing new React Native projects with predefined configurations.",
   "author": "Earl Balai Jr",
   "license": "MIT",
   "homepage": "https://github.com/earlbalai/rn-blitz#readme",
-  "main": "index.mjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
-    "start": "node ./index.mjs"
+    "build": "tsc",
+    "lint": "biome check src",
+    "lint:fix": "biome check src --apply",
+    "prepack": "npm run build",
+    "prepublishOnly": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -17,10 +27,16 @@
     "url": "https://github.com/earlbalai/rn-blitz/issues"
   },
   "bin": {
-    "rn-blitz": "index.mjs"
+    "rn-blitz": "dist/index.js"
   },
   "type": "module",
   "dependencies": {
     "inquirer": "^9.2.14"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.3",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^20.11.16",
+    "typescript": "^5.3.3"
   }
 }
