@@ -20,9 +20,6 @@ jobs:
       - name: Build typescript
         run: npm run build
 
-      - name: Patch version
-        run: npm version patch
-
       - name: Publish package to NPM
         run: npm publish
         env:
