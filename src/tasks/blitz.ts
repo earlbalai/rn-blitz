@@ -45,16 +45,16 @@ async function blitz() {
     let initializationCommand;
     switch (packageManagerChoice) {
       case "npm":
-        initializationCommand = "npx react-native@latest init";
+        initializationCommand = "npx";
         break;
       case "yarn":
-        initializationCommand = "yarn react-native@latest init";
+        initializationCommand = "yarn";
         break;
       case "pnpm":
-        initializationCommand = "pnpx react-native@latest init";
+        initializationCommand = "pnpx";
         break;
       case "bun":
-        initializationCommand = "bunx react-native@latest init";
+        initializationCommand = "bunx";
         break;
       default:
         console.error("Invalid package manager choice:", packageManagerChoice);
@@ -62,7 +62,7 @@ async function blitz() {
     }
 
     // Run initialization command with the chosen package manager
-    execCommand(`${packageManagerCommand} ${initializationCommand} ${projectName}`);
+    execCommand(`${initializationCommand} react-native@latest init ${projectName}`);
 
     // Ask user about setup options
     const setupOptions = await askSetupOptions();
